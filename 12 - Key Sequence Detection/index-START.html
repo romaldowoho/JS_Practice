@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+</head>
+<body>
+	<img id="img" src=''>
+<script>
+
+	function gif() {
+		var doc = document.getElementById("img");
+		doc.setAttribute("src", "https://media.giphy.com/media/yNiawz26ziULtqEif5/giphy.gif");
+	}
+	const pressed = [];
+	const secretCode = 'barney';
+
+	document.addEventListener('keyup', (e) => {
+		pressed.push(e.key);
+		if(pressed.length > secretCode.length) {
+			pressed.shift();
+		}
+		if(pressed.join('').includes(secretCode)) {
+			gif();
+		}
+		console.log(pressed);
+	})
+</script>
+</body>
+</html>
